@@ -3,13 +3,18 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Header } from './components/Header'
+import { Form } from './components/Form/Form'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const message = 'Hello World'
 
   return (
     <>
-     <Header />
+      <h1>{console.log(message)}</h1>
+      <Header />
+      <Form />
     </>
   )
 }

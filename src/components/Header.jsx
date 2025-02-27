@@ -1,5 +1,15 @@
 
 export const Header = () => {
+  // const links = ["Home", "About", "Contact", "Products" , "Login" ];
+
+  const links = [
+    { title: "Home", url: "/" },
+    { title: "About", url: "/about" },
+    { title: "Contact", url: "/contact" },
+    { title: "Products", url: "/products" },
+  ]
+  console.log(links);
+  
   return (
     <div>
       <nav className="flex justify-around items-center">
@@ -12,7 +22,7 @@ export const Header = () => {
         </div>
         <div>
           <ul className="flex justify-center space-x-4">
-            <a
+            {/* <a
               href="/dashboard"
               class="text-xl font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-red-100 hover:text-slate-900"
             >
@@ -35,7 +45,20 @@ export const Header = () => {
               class="text-xl font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-red-100 hover:text-slate-900"
             >
               Products
-            </a>
+            </a> */}
+
+            {links.map((link, index) =>
+            
+           { return (
+             <li key={index + 1}>
+               <a
+                 href={link.url}
+                 class="text-xl font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-red-100 hover:text-slate-900"
+               >
+                 {link.title}
+               </a>
+             </li>
+           );})}
           </ul>
         </div>
       </nav>
