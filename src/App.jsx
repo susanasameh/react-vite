@@ -4,17 +4,37 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Header } from './components/Header'
 import { Form } from './components/Form/Form'
+import { Products } from './components/products/Products'
 
 
 function App() {
-
-  const message = 'Hello World'
+  const products = [
+    {
+      title : "Product 1",
+      price: 100,
+      description: "This is product 1",
+      rate : 5
+    },
+    {
+      title : "Product 2",
+      price: 200,
+      description: "This is product 2",
+      rate : 4
+    },
+    {
+      title : "Product 3",
+      price: 300,
+      description: "This is product 3",
+      rate : 3
+    }
+  ]
 
   return (
     <>
-      <h1>{console.log(message)}</h1>
+
       <Header />
       <Form />
+      <Products products={products}/>
     </>
   )
 }
