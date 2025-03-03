@@ -28,13 +28,38 @@ function App() {
       rate : 3
     }
   ]
+//annonymous function
+  function sayHello() {
+    alert("Hello Susana 🥰");  
+    smileFunction();
+  }
+
+  //arrow function more than one line
+  const smileFunction = () => {
+    alert("smile Susana 🥰");
+    console.log("you deserve 🥰");  
+    smileFunction2();
+  }
+
+  //arrow function one line
+  const smileFunction2 = () => console.log("🎁");
+
+  const helloFunction = (name) => {
+    name =prompt("Please enter your name");
+    alert(`Hello ${name} 🥰`);
+  }
 
   return (
     <>
 
-      <Header />
+      {/* <Header />
       <Form />
-      <Products products={products}/>
+      <Products products={products}/> */}
+      <button className='bg-slate-900 text-white px-4 py-2 rounded-lg' type="button" onClick={sayHello}>Click me</button>
+      <button className='bg-amber-600 text-white px-4 py-2 rounded-lg' type="button" onClick={() => alert("Hello Susana 🥰")}>arrow function</button>
+      <button className='bg-amber-600 text-white px-4 py-2 rounded-lg' type="button" onClick={(e) => console.log(e.target)}>Event Target</button>
+      <button style={{backgroundColor : "red"}} type="button" onClick={() => helloFunction()}>Hello Function</button>
+   
     </>
   )
 }
