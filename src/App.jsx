@@ -5,6 +5,7 @@ import './App.css'
 import { Header } from './components/Header'
 import { Form } from './components/Form/Form'
 import { Products } from './components/products/Products'
+import { Button } from './components/Button'
 
 
 function App() {
@@ -55,10 +56,23 @@ function App() {
       {/* <Header />
       <Form />
       <Products products={products}/> */}
-      <button className='bg-slate-900 text-white px-4 py-2 rounded-lg' type="button" onClick={sayHello}>Click me</button>
+      {/* <button className='bg-slate-900 text-white px-4 py-2 rounded-lg' type="button" onClick={sayHello}>Click me</button>
       <button className='bg-amber-600 text-white px-4 py-2 rounded-lg' type="button" onClick={() => alert("Hello Susana 🥰")}>arrow function</button>
       <button className='bg-amber-600 text-white px-4 py-2 rounded-lg' type="button" onClick={(e) => console.log(e.target)}>Event Target</button>
-      <button style={{backgroundColor : "red"}} type="button" onClick={() => helloFunction()}>Hello Function</button>
+      <button style={{backgroundColor : "red"}} type="button" onClick={() => helloFunction()}>Hello Function</button> */}
+      {/* <Button
+        text="Click Me"
+        onClick={sayHello} />
+      
+      <Button
+        text="Click Me 2"
+        onClick={helloFunction} /> */}
+      
+      {/* using span instead of text props*/}
+      <Button
+        onClick={() => alert("Hello Susana 🥰")} >
+        <span>Hello</span>
+        </Button>
    
     </>
   )
