@@ -59,6 +59,42 @@ function App() {
   //useState with input value
   const [inputValue, setInputValue] = useState("");
 
+
+  //form with useState
+  const [nameInput, setNameInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+
+  const handleSubmit =(e) => {
+    e.preventDefault();
+    if (nameInput === "" || nameInput.length < 3) {
+      alert("Please enter your name");
+      return;
+    }
+    if (emailInput === "" || !emailInput.includes("@")) {
+      alert("Please enter a valid email");
+      return;
+    }
+    if (passwordInput.length < 8 || passwordInput === "") {
+      alert("Password must be at least 8 characters");
+      return;
+    }
+    // console.log(nameInput);
+    // console.log(emailInput);
+    // console.log(passwordInput);
+    //if the key of object the same like value of input we can use object destructuring
+    // console.log({nameInput, emailInput, passwordInput});
+    
+    //send this data to backend api 
+    console.log({ name: nameInput, email: emailInput, password: passwordInput });
+    clearInputs();
+  }
+  function clearInputs() {
+    setNameInput("");
+    setEmailInput("");
+    setPasswordInput("");
+  }
+
   return (
     <>
       {/* <Header />
@@ -77,19 +113,19 @@ function App() {
         onClick={helloFunction} /> */}
 
       {/* using span instead of text props*/}
-      <Button onClick={() => alert("Hello Susana 🥰")}>
+      {/* <Button onClick={() => alert("Hello Susana 🥰")}>
         <span>Hello</span>
-      </Button>
+      </Button> */}
 
-      <div className="text-center border-2 border-red-900">
+      {/* <div className="text-center border-2 border-red-900">
         <h3>Count : {count}</h3>
         <Button onClick={() => setCount(count + 1)}>Increment</Button>
-        {/* //using prev to get the previous value */}
+        // using prev to get the previous value
         <Button onClick={() => setCount((prev) => prev - 1)}>Decrement</Button>
         <Button onClick={() => setCount(0)}>Reset</Button>
-      </div>
+      </div> */}
 
-      <div className="text-center border-2 border-red-900">
+      {/* <div className="text-center border-2 border-red-900">
         <h3>
           Name : {user.fName} {user.lName}
         </h3>
@@ -115,7 +151,54 @@ function App() {
         <input type='text' id='name' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />    
 
       </div>
-          <span>Your name is : {inputValue}</span>
+          <span>Your name is : {inputValue}</span> */}
+
+      <div>
+        <form action="" className="flex flex-col m-3 bg-stone-100 p-2 border-violet-500 border-2 " onSubmit={handleSubmit}>
+          <div>
+          <label htmlFor="name">Name : </label>
+          <input
+            type="text"
+            id="name"
+              name="name"
+              value={nameInput}
+              className="border m-auto w-6/12 hover:bg-amber-50 hover:text-amber-600 hover:border-amber-600"
+              onChange={(e) =>setNameInput(e.target.value)}
+            />
+            {/* {console.log(nameInput)} */}
+          </div>
+
+          <div>
+             <label htmlFor="email">Email : </label>
+          <input
+            type="email"
+            id="email"
+              name="email"
+              value={emailInput}
+              className="border m-2 w-6/12 hover:bg-amber-50 hover:text-amber-600 hover:border-amber-600"
+              onChange={(e) => setEmailInput(e.target.value)}
+              
+            />
+            {/* {console.log(emailInput)} */}
+          </div>
+         
+          <div>
+            <label htmlFor="password">Password : </label>
+          <input
+            type="password"
+            id="password"
+              name="password"
+              value={passwordInput}
+            className="border m-2 w-6/12 hover:bg-amber-50 hover:text-amber-600 hover:border-amber-600"
+            onChange={(e) => setPasswordInput(e.target.value)}
+            />
+            {/* {console.log(passwordInput)} */}
+          </div>
+         
+
+          <Button type="submit">Submit</Button>
+        </form>
+      </div>
     </>
   );
 }
